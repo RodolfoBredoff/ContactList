@@ -1,0 +1,78 @@
+$bgCard: #007bff;
+$sizeBars : 3rem;
+
+$white : #FFF;
+
+*{
+    &:not(i){ font-family: 'montserrat'; }
+    font-size: 1rem;
+
+}
+
+.card{
+
+    color: black;
+    width: 18rem;
+    border: 1px solid #6c757d;
+
+    &[class*="card"]:hover{ 
+        background-color: darken(#6c757d, 15%); 
+        color:$white;
+    }
+    img:not(.flags){ border-radius: 35px; }
+    .card-header{ border: transparent; }
+    
+
+}
+
+.flags{
+    height: 1.5rem;
+}
+
+.cursor-hand{
+    
+    &:not(.ex,input){ background-color: $bgCard; } 
+    
+    color: black;
+    height: 2rem;
+
+    &:hover:not(.ex,input){ 
+        background-color: transparent;
+        color: $bgCard;
+        cursor: pointer;
+
+    }
+
+}
+
+
+.btn-contact{
+    background-color: transparent;
+    color: #28a745;
+    &:hover{        
+        color: lighten(#FFF, 5%);
+        cursor: pointer;
+    }
+}
+
+$border: #6c757d;
+
+.menu-bar{
+    color: black!important;
+    border: 1px solid $border; 
+    border-radius: 10px; 
+    width: calc(18.7rem * 4);
+    height: $sizeBars;
+    padding: 0 2rem;
+}
+
+
+.reload{
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+
+    .btn:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+}

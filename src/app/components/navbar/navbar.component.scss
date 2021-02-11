@@ -1,0 +1,24 @@
+
+
+nav{
+    font-family: 'montserrat';
+    border-bottom: 1px solid #6c757d;
+    width: 100vw;
+    img{
+        height: 4rem;
+    }
+}
+
+.cursor-hand{
+    
+    background-color: #007bff;
+    color: white;
+    
+    &:hover{ 
+        background-color: transparent;
+        color: #007bff;
+        cursor: pointer;
+
+    }
+
+}

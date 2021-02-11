@@ -1,0 +1,120 @@
+<body>
+
+  <div class="row">
+
+    <!-- Menu bar -->
+    <div class="d-flex justify-content-between align-items-center mx-auto mt-5 menu-bar">
+
+      <div></div>
+
+      <div>
+        <span class="ml-5">Meus Contatos</span>
+      </div>
+
+      <!-- Menu -->
+      <div class="d-flex mr-4 mt-3">
+
+
+
+        <!-- Searchbar -->
+        <div class="input-group mb-3">
+
+          <div class="input-group-prepend">
+
+            <span class="input-group-text">
+              <i class="fa fa-search text-info" aria-hidden="true"></i>
+            </span>
+
+          </div>
+
+          <input type="text" class="form-control cursor-hand " (change)="filterUsers()" [(ngModel)]="searchText"
+            aria-label="Username" aria-describedby="basic-addon1">
+
+          <div class="input-group-append">
+            <!-- Recarregar lista -->
+            <span title="Limpar Filtro" disabled="textSearch" 
+              class="form-control cursor-hand ex text-info"
+              (click)="loadUsers()">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Lista Contatos -->
+    <div class="d-flex flex-wrap mx-auto my-5 justify-content-center contact">
+      
+      <!-- Card Contatos -->
+      <div class="card m-2 " *ngFor="let contact of contacts">
+
+        <!-- Header -->
+        <div class="card-header d-flex justify-content-center">
+
+          <div></div>
+
+          <!-- Photo -->
+          <img class="align-self-end" src="{{contact.picture.medium}}">
+
+        </div>
+
+        <!-- Body -->
+        <div class="card-body d-flex justify-content-center flex-wrap">
+
+          <!-- Name/Nat -->
+          <div class="align-self-start justify-content-around d-flex">
+
+            <div>
+              <!-- Name -->
+              {{contact.name.first}} {{contact.name.last}}
+            </div>
+
+            <!-- Flag -->
+            <img title="{{contact.nat}}" class="flags mx-3" src="https://www.countryflags.io/{{contact.nat}}/shiny/64.png">
+
+          </div>
+
+          <!-- Info -->
+          <div class="mt-2">
+            <!-- Email -->
+            <div>
+              <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
+              <small class="fs-smaller">{{contact.email}}</small>
+            </div>
+
+            <!-- Phone -->
+            <div class="d-flex  align-items-center">
+              <i class="fa fa-mobile mr-2" style="font-size: 2rem;" aria-hidden="true"></i>
+              <small class="fs-smaller">{{contact.phone}} </small>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="card-footer d-flex justify-content-center">
+
+          <!-- Favoritar -->
+          <div class="btn btn-contact mx-3" title="Favoritar Contato"
+            [ngStyle]="{'color': contact.favorited ? '#e63438' : '#6c757d' }" (click)="favoriteContact(contact)">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+
+          <!-- Deletar contato -->
+          <div title="Deletar contato" class="btn btn-contact" (click)="deleteContact(contact.id)">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
